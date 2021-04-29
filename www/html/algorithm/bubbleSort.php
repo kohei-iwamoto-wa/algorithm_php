@@ -1,7 +1,10 @@
 <?php
+// 参照渡し &
 function bubble_sort(&$arr){
   $size = count($arr);
   for ($i = 0; $i < $size; $i++) {
+    // $iでマイナスしている理由
+    // 最後の値は確定している。確定している値以外をソートする。
     for ($j = 0; $j < ($size - 1 - $i); $j++) {
         if ($arr[$j + 1] < $arr[$j]) {
             $tmp = $arr[$j + 1];
