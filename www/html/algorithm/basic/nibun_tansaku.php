@@ -1,16 +1,16 @@
 <?php
-$inputValue = trim(fgets(STDIN));
+$inputValue = (int)trim(fgets(STDIN));
 
-$a = [1, 2, 3, 4, 6];
+$a = [1, 2, 3, 4, 6, 10];
 $start = 0;
 $last = count($a) - 1;
 $median = ($start + $last) / 2;
-$median = $median;
+$median = floor($median);
 
 while ($start <= $last) {
     if ($a[$median] === $inputValue) {
-        var_dump(floor($median));
-        return floor($median);
+        var_dump($median);
+        return $median;
 
     } else {
         if ($inputValue < $median) {
@@ -27,4 +27,5 @@ while ($start <= $last) {
     $median = floor($median);
     var_dump('$median: ' . $median);
 }
+print_r(-1);
 return -1;
