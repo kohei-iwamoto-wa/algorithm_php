@@ -7,6 +7,7 @@ services:
    volumes:
      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
      - ./www/html:/var/www/html
+   restart: always
    depends_on:
      - php
  php:
@@ -20,9 +21,13 @@ services:
    ports:
      - 13306:3306
    volumes:
-     - ./mysql:/var/lib/mysql
+     - ./mysql/data:/var/lib/mysql
    environment:
-     MYSQL_ROOT_PASSWORD: secret
+    MYSQL_DATABASE: default
+    MYSQL_USER: root
+    MYSQL_PASSWORD: secret
+    MYSQL_ROOT_PASSWORD: secret
+   restart: always
  phpmyadmin:
    image: phpmyadmin/phpmyadmin:latest
    ports:
